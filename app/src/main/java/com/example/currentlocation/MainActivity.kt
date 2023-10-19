@@ -1,5 +1,6 @@
 package com.example.currentlocation
 
+
 import android.Manifest
 import android.content.Context
 import android.content.SharedPreferences
@@ -24,6 +25,9 @@ import kotlin.math.atan2
 import kotlin.math.cos
 import kotlin.math.sin
 import kotlin.math.sqrt
+import android.content.Intent
+import android.widget.Button
+import com.example.currentlocation.R.*
 
 class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -33,13 +37,19 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(layout.activity_main)
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         sharedPref = getSharedPreferences("AppSettings", Context.MODE_PRIVATE)
 
-        val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
+        val mapFragment = supportFragmentManager.findFragmentById(id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+        val btnObservation: Button = findViewById(R.id.btnObservation) // Make sure 'button2' is the correct ID for your button
+        btnObservation.setOnClickListener {
+            val intent = Intent(this, UploadActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
