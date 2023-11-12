@@ -28,17 +28,17 @@
 
     <!-- Icons are updated with elevation to appear above the app bar -->
 
+
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="47dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="16dp"
+        android:id="@+id/ToDo"
+        android:layout_width="58dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="12dp"
         android:elevation="6dp"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintStart_toStartOf="@+id/view"
-        app:srcCompat="@drawable/daco_2335371" />
-
+        app:srcCompat="@drawable/pngtree_vector_list_icon_png_image_322087_removebg_preview" />
 
     <ImageView
         android:id="@+id/mapIcon"
@@ -50,8 +50,8 @@
         android:elevation="6dp"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toEndOf="@+id/ToDo"
         app:srcCompat="@drawable/pngfind_com_map_pin_png_57891" />
 
     <ImageView

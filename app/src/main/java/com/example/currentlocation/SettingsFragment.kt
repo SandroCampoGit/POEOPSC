@@ -22,7 +22,6 @@ class SettingsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.settings, container, false)
 
         sharedPref = activity?.getSharedPreferences("AppSettings", Context.MODE_PRIVATE) ?: return view
@@ -31,8 +30,7 @@ class SettingsFragment : Fragment() {
         val distanceSeekBar: SeekBar = view.findViewById(R.id.distanceSeekBar)
         val distanceTextView: TextView = view.findViewById(R.id.distanceTextView)
 
-        // Load saved max distance and unit from shared preferences
-        val savedMaxDistance = sharedPref.getInt("MaxDistance", 0)
+        val savedMaxDistance = sharedPref.getInt("MaxDistance", 50) // Default to 50 if not set
         val savedUnit = sharedPref.getString("Unit", "km") // Default to "km" if not set
 
         distanceSeekBar.progress = savedMaxDistance
@@ -44,7 +42,6 @@ class SettingsFragment : Fragment() {
             unitRadioGroup.check(R.id.imperialRadioButton)
         }
 
-        // Update based on radio button selection
         unitRadioGroup.setOnCheckedChangeListener { _, checkedId ->
             val unit = if (checkedId == R.id.metricRadioButton) "km" else "miles"
             val currentProgress = distanceSeekBar.progress
@@ -52,7 +49,6 @@ class SettingsFragment : Fragment() {
             sharedPref.edit().putString("Unit", unit).apply()
         }
 
-        // Update based on seek bar movement
         distanceSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 val unit = if (view.findViewById<RadioButton>(R.id.metricRadioButton).isChecked) "km" else "miles"
@@ -62,7 +58,7 @@ class SettingsFragment : Fragment() {
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}
 
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                sharedPref.edit().putInt("MaxDistance", seekBar?.progress ?: 0).apply()
+                sharedPref.edit().putInt("MaxDistance", seekBar?.progress ?: 50).apply()
             }
         })
 

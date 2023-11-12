@@ -30,7 +30,7 @@
         app:srcCompat="@drawable/pngfind_com_security_camera_icon_png_6304689" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/uploadTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -44,7 +44,7 @@
         app:layout_constraintVertical_bias="0.616" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/uploadDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -58,7 +58,7 @@
         app:layout_constraintVertical_bias="0.715" />
 
     <EditText
-        android:id="@+id/editTextText3"
+        android:id="@+id/uploadLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -72,7 +72,7 @@
         app:layout_constraintVertical_bias="0.817" />
 
     <EditText
-        android:id="@+id/editTextText4"
+        android:id="@+id/uploadDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -86,7 +86,7 @@
         app:layout_constraintVertical_bias="0.915" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Save"
